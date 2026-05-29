@@ -1,6 +1,6 @@
 # HR Assistant RAG 🤖
 
-A RAG-based HR assistant that answers questions from company PDF documents using ChromaDB and Gemini API.
+An AI-powered HR assistant built with RAG (Retrieval Augmented Generation) that answers employee policy questions from company documents-without hallucinating or going outside the provided context.
 
 ## What it does
 - Reads a PDF document
@@ -8,6 +8,14 @@ A RAG-based HR assistant that answers questions from company PDF documents using
 - Answers questions using Google Gemini API
 - Only answers from the document, not from internet
 - Detects duplicate questions using semantic similarity
+
+## How it works
+1. Extracts text from PDF using PyPDF2
+2. Splits into 500 character chunks
+3. Stores chunks in ChromaDB with embeddings
+4. User asks a question
+5. Retrieves top 3 relevant chunks using cosine similarity
+6. Gemini generates answer from retrieved context only
 
 ## Tech used
 - Python
